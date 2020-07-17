@@ -110,14 +110,12 @@
     <Compile Include="Controllers\CinemaController.cs" />
     <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Controllers\ProjectionController.cs" />
+    <Compile Include="Controllers\ReservationController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Controllers\TicketController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Input\Cinema\CinemaCreationModel.cs" />
-    <Compile Include="Models\Input\Movie\MovieCreationModel.cs" />
-    <Compile Include="Models\Input\Projection\ProjectionCreationModel.cs" />
-    <Compile Include="Models\Input\Room\RoomCreationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +150,10 @@
     <ProjectReference Include="..\CinemAPI.Models\CinemAPI.Models.csproj">
       <Project>{BA334908-BED7-43D3-B885-A8B529EC6D36}</Project>
       <Name>CinemAPI.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InputModels\InputModels.csproj">
+      <Project>{0fd5eec1-0b56-4fec-be24-e74b6ce877a8}</Project>
+      <Name>InputModels</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

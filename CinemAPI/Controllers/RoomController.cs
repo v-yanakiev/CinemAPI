@@ -1,7 +1,7 @@
 ﻿using CinemAPI.Data;
 using CinemAPI.Models;
 using CinemAPI.Models.Contracts.Room;
-using CinemAPI.Models.Input.Room;
+using InputModels.Room;
 using System.Web.Http;
 
 namespace CinemAPI.Controllers
@@ -18,6 +18,9 @@ namespace CinemAPI.Controllers
         [HttpPost]
         public IHttpActionResult Index(RoomCreationModel model)
         {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
             IRoom room = roomRepo.GetByCinemaAndNumber(model.CinemaId, model.Number);
 
             if (room == null)

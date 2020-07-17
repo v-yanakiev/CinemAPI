@@ -42,13 +42,22 @@
   <ItemGroup>
     <Compile Include="Cinema\ICinema.cs" />
     <Compile Include="Cinema\ICinemaCreation.cs" />
+    <Compile Include="IReservation.cs" />
     <Compile Include="Movie\IMovie.cs" />
     <Compile Include="Movie\IMovieCreation.cs" />
+    <Compile Include="Projection\IProjectionAccessParameters.cs" />
     <Compile Include="Projection\IProjection.cs" />
     <Compile Include="Projection\IProjectionCreation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Room\IRoom.cs" />
     <Compile Include="Room\IRoomCreation.cs" />
+    <Compile Include="Ticket\ITicket.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InputModels\InputModels.csproj">
+      <Project>{0fd5eec1-0b56-4fec-be24-e74b6ce877a8}</Project>
+      <Name>InputModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,7 +1,7 @@
 ﻿using CinemAPI.Data;
 using CinemAPI.Models;
 using CinemAPI.Models.Contracts.Cinema;
-using CinemAPI.Models.Input.Cinema;
+using InputModels.Cinema;
 using System.Web.Http;
 
 namespace CinemAPI.Controllers
@@ -18,6 +18,8 @@ namespace CinemAPI.Controllers
         [HttpPost]
         public IHttpActionResult Index(CinemaCreationModel model)
         {
+            if (!ModelState.IsValid)
+                return BadRequest();
             ICinema cinema = cinemaRepo.GetByNameAndAddress(model.Name, model.Address);
 
             if (cinema == null)
@@ -28,6 +30,7 @@ namespace CinemAPI.Controllers
             }
 
             return BadRequest("Cinema already exists");
+
         }
     }
 }

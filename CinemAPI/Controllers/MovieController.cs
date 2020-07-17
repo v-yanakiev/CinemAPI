@@ -1,8 +1,9 @@
 ﻿using CinemAPI.Data;
 using CinemAPI.Models;
 using CinemAPI.Models.Contracts.Movie;
-using CinemAPI.Models.Input.Movie;
+using InputModels;
 using System.Web.Http;
+using InputModels.Movie;
 
 namespace CinemAPI.Controllers
 {
@@ -18,6 +19,9 @@ namespace CinemAPI.Controllers
         [HttpPost]
         public IHttpActionResult Index(MovieCreationModel model)
         {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
             IMovie movie = movieRepo.GetByNameAndDuration(model.Name, model.DurationMinutes);
 
             if (movie == null)

@@ -40,12 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessProjection\KeyAccessProjection.cs" />
+    <Compile Include="BuyTicket\BuyTicket.cs" />
+    <Compile Include="CancelReservation\CancelReservation.cs" />
     <Compile Include="NewProjection\NewProjectionMovieValidation.cs" />
     <Compile Include="NewProjection\NewProjectionRoomValidation.cs" />
     <Compile Include="NewProjection\NewProjectionCreation.cs" />
     <Compile Include="NewProjection\NewProjectionNextOverlapValidation.cs" />
     <Compile Include="NewProjection\NewProjectionPreviousOverlapValidation.cs" />
     <Compile Include="NewProjection\NewProjectionUniqueValidation.cs" />
+    <Compile Include="NewReservation\NewReservationCreation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +68,10 @@
     <ProjectReference Include="..\CinemAPI.Models\CinemAPI.Models.csproj">
       <Project>{BA334908-BED7-43D3-B885-A8B529EC6D36}</Project>
       <Name>CinemAPI.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InputModels\InputModels.csproj">
+      <Project>{0FD5EEC1-0B56-4FEC-BE24-E74B6CE877A8}</Project>
+      <Name>InputModels</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

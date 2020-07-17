@@ -43,10 +43,16 @@
     <Compile Include="ICinemaRepository.cs" />
     <Compile Include="IMovieRepository.cs" />
     <Compile Include="IProjectionRepository.cs" />
+    <Compile Include="IReservationRepository.cs" />
     <Compile Include="IRoomRepository.cs" />
+    <Compile Include="ITicketRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CinemAPI.Domain.Contracts\CinemAPI.Domain.Contracts.csproj">
+      <Project>{87F9B363-DB5B-4171-B86D-3CC2D9B5A5BD}</Project>
+      <Name>CinemAPI.Domain.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CinemAPI.Models.Contracts\CinemAPI.Models.Contracts.csproj">
       <Project>{6599FDBF-A597-4B63-8DA6-62BA0958DBCA}</Project>
       <Name>CinemAPI.Models.Contracts</Name>
@@ -54,6 +60,10 @@
     <ProjectReference Include="..\CinemAPI.Models\CinemAPI.Models.csproj">
       <Project>{BA334908-BED7-43D3-B885-A8B529EC6D36}</Project>
       <Name>CinemAPI.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InputModels\InputModels.csproj">
+      <Project>{0FD5EEC1-0B56-4FEC-BE24-E74B6CE877A8}</Project>
+      <Name>InputModels</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

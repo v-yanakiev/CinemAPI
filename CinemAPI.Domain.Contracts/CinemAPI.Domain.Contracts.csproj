@@ -40,14 +40,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAccessProjection.cs" />
+    <Compile Include="IBuyTicket.cs" />
+    <Compile Include="ICancelReservation.cs" />
     <Compile Include="INewProjection.cs" />
+    <Compile Include="INewReservation.cs" />
+    <Compile Include="Models\AccessProjectionSummary.cs" />
+    <Compile Include="Models\BuyTicketSummary.cs" />
+    <Compile Include="Models\CancelReservationSummary.cs" />
     <Compile Include="Models\NewProjectionSummary.cs" />
+    <Compile Include="Models\NewReservationSummary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CinemAPI.Models.Contracts\CinemAPI.Models.Contracts.csproj">
       <Project>{6599FDBF-A597-4B63-8DA6-62BA0958DBCA}</Project>
       <Name>CinemAPI.Models.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InputModels\InputModels.csproj">
+      <Project>{0fd5eec1-0b56-4fec-be24-e74b6ce877a8}</Project>
+      <Name>InputModels</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

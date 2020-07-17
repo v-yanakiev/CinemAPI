@@ -3,6 +3,7 @@ using CinemAPI.Models;
 using CinemAPI.Models.Contracts.Projection;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace CinemAPI.Data.Implementation
@@ -22,7 +23,10 @@ namespace CinemAPI.Data.Implementation
                                                       x.RoomId == roomId &&
                                                       x.StartDate == startDate);
         }
-
+        public IProjection Get(long projectionId)
+        {
+            return db.Projections.Include(a=>a.Room.Cinema).Include(a=>a.Movie).Include(a=>a.Reservations).Include(a=>a.Tickets).FirstOrDefault(x => x.Id == projectionId);
+        }
         public IEnumerable<IProjection> GetActiveProjections(int roomId)
         {
             DateTime now = DateTime.UtcNow;
@@ -33,10 +37,21 @@ namespace CinemAPI.Data.Implementation
 
         public void Insert(IProjectionCreation proj)
         {
-            Projection newProj = new Projection(proj.MovieId, proj.RoomId, proj.StartDate);
+            List<Projection> projections = db.Projections.ToList();
+            Projection newProj = new Projection(proj.MovieId, proj.RoomId, proj.StartDate,proj.AvailableSeatsCount);
 
             db.Projections.Add(newProj);
             db.SaveChanges();
+        }
+
+        public bool ProjectionHasStarted(IProjection projection)
+        {
+            return (projection.StartDate <= DateTime.Now);
+        }
+        public bool ProjectionHasStarted(long projectionId)
+        {
+            var projection = this.Get(projectionId);
+            return (projection.StartDate <= DateTime.Now);
         }
     }
 }
